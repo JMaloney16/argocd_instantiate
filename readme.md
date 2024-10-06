@@ -32,11 +32,11 @@ module "demo" {
 ```
 
 Outputs
-=======
+---
 
 None, yet.
 
 Authors
-=======
+---
 
 Jack Maloney
