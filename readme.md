@@ -10,7 +10,7 @@ Module Input Variables
 - `token` - The kubeconfig authentication token.
 - `insecure` - Validate certificates boolean.
 - `argocd_password` - The password to assign to the `admin` user in ArgoCD.
-
+- `argocd_values`(optional) - Absolute file path to values.yaml for the argo-cd chart.
 - `argocd_version`(optional) - The version of the argo-cd chart to use.
 
 The `argocd_password` should be provided as a bcrypt hashed string, this can be generated with ```htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'``` where $ARGO_PWD is the password in plain text.
@@ -27,6 +27,7 @@ module "demo" {
   insecure = module.primaryInstance.kubeconfig_insecure
 
   argocd_version = var.argocd_version
+  argocd_values = var.argocd_values
   argocd_password = var.argocd_password
 }
 ```

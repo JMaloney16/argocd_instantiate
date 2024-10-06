@@ -24,6 +24,12 @@ variable "argocd_version" {
   default     = "7.6.8"
 }
 
+variable "argocd_values" {
+  description = "File path to values.yaml for argo-cd chart."
+  type        = string
+  default     = ""
+}
+
 variable "argocd_password" {
   description = "The password for the argocd admin user."
   type        = string

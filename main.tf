@@ -1,3 +1,7 @@
+locals {
+  argocd_values = var.argocd_values == "" ? "${path.module}/configs/argo-values.yaml" : var.argocd_values
+}
+
 resource "kubernetes_namespace" "argocd" {
   metadata {
     name = "argocd"
@@ -13,7 +17,7 @@ resource "helm_release" "argocd" {
   version    = var.argocd_version
 
   values = [
-    file("${path.module}/configs/argo-values.yaml")
+    file("${local.argocd_values}")
   ]
 
   set {
