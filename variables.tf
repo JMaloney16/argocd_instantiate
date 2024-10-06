@@ -18,6 +18,12 @@ variable "namespace" {
   default     = "argocd"
 }
 
+variable "argocd_version" {
+  description = "Version of the argo-cd chart to use."
+  type        = string
+  default     = "7.6.8"
+}
+
 variable "argocd_password" {
   description = "The password for the argocd admin user."
   type        = string
